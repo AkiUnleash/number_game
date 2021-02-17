@@ -1,4 +1,5 @@
 import { Component } from './abstract-component'
+import { stateOperation } from '../state/state'
 
 export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
   constructor(private acrivenumber: number) {
@@ -13,6 +14,6 @@ export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
 
   private submitHandler(event: Event) {
     event.preventDefault();
+    stateOperation.checkTheAnswer(this.element.value)
   }
-
 }

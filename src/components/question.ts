@@ -1,16 +1,19 @@
 import { Component } from './abstract-component'
+import { stateOperation } from '../state/state'
 
 export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
     super('question', 'app')
+    stateOperation.setQuestion();
     this.renderContent()
   }
 
   configure() { }
 
   renderContent() {
-    console.log(this.element);
-    this.element.textContent = (Math.floor(Math.random() * 100000 - 1)).toString();
+    const q = stateOperation.getQuestion()
+    this.element.textContent = q;
+    console.log(stateOperation.getQuestion());
   }
 
 }
