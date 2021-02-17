@@ -13,7 +13,6 @@ export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
 
   private submitHandler(event: Event) {
     event.preventDefault();
-    console.log(this.acrivenumber);
   }
 
 }

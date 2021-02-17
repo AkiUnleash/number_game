@@ -1,11 +1,11 @@
 import { Component } from './abstract-component'
 import { NumberButton } from './number-button'
+import { QuestionDisplay } from './question'
 
 export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
     super('start-button', 'app')
     this.configure()
-    console.log(this.element);
   }
 
   configure() {
@@ -15,10 +15,11 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
 
   private submitHandler(event: Event) {
     event.preventDefault();
-    this.element.remove()
+    this.element.remove();
     for (const n of this.arrayshuffle([...Array(9)].map((_, i) => i + 1))) {
-      new NumberButton(n)
+      new NumberButton(n);
     }
+    new QuestionDisplay();
   }
 
   // 配列のシャッフル

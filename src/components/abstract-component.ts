@@ -27,4 +27,8 @@ export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   private attach() {
     this.hostElement.insertAdjacentElement('beforeend', this.element)
   }
+
+  // 必須メソッド
+  // ボタンの動きを付ける
+  protected abstract configure(): void;
 }
