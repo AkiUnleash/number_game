@@ -16,7 +16,7 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
   private submitHandler(event: Event) {
     event.preventDefault();
     this.element.remove();
-    for (const n of this.arrayshuffle([...Array(9)].map((_, i) => i + 1))) {
+    for (const n of this.arrayshuffle([...Array(10)].map((_, i) => i))) {
       new NumberButton(n);
     }
     new QuestionDisplay();

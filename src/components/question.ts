@@ -13,7 +13,6 @@ export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement>
   renderContent() {
     const q = stateOperation.getQuestion()
     this.element.textContent = q;
-    console.log(stateOperation.getQuestion());
   }
 
 }
