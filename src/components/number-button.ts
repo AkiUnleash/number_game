@@ -19,9 +19,9 @@ export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
   renderQuestion() {
     const listEl = document.getElementById('Question_no')! as HTMLDivElement;
     listEl.textContent = "";
-    for (const prjItem of this.assignedState) {
+    for (const Item of this.assignedState) {
       const listItem = document.createElement('div');
-      listItem.textContent = prjItem;
+      listItem.textContent = Item;
       listEl.appendChild(listItem);
     }
   }

@@ -9,17 +9,18 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
   }
 
   configure() {
-    // ボタンクリック時のアクション
-    this.element.addEventListener('click', this.submitHandler.bind(this))
+    // ボタンクリック時のアクションを埋め込む
+    this.element.addEventListener('click', this.clickHandler.bind(this))
   }
 
-  private submitHandler(event: Event) {
+  // 埋め込むアクション
+  private clickHandler(event: Event) {
     event.preventDefault();
     this.element.remove();
+    new QuestionDisplay();
     for (const n of this.arrayshuffle([...Array(10)].map((_, i) => i))) {
       new NumberButton(n);
     }
-    new QuestionDisplay();
   }
 
   // 配列のシャッフル

@@ -12,7 +12,13 @@ export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement>
 
   renderContent() {
     const q = stateOperation.getQuestion()
-    this.element.textContent = q;
+    const listEl = document.getElementById('Question_no')! as HTMLDivElement;
+    listEl.textContent = "";
+    for (const Item of q) {
+      const listItem = document.createElement('div');
+      listItem.textContent = Item;
+      listEl.appendChild(listItem);
+    }
   }
 
 }
