@@ -1,0 +1,23 @@
+// Display Size
+$breakpoints: (
+  "sm": "screen and (max-width: 480px)",
+  "md": "screen and (min-width: 481px) and (max-width:1023px)",
+  "lg": "screen and (min-width: 1024px)",
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// size
+$basePixel: 8px;
+
+// Color
+$baseColor: #312535;
+$MainColor: #394d50;
+$AccentColor: #e4a011;
+$subColor1: #718053;
+$subColor2: #d9b121;
+$fontColor: #ccc;

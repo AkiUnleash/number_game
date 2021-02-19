@@ -1,4 +1,5 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -11,10 +12,32 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /.(css|scss|sass)$/,
+        use: [
+          {
+            // minifiy
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true },
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ],
+      },
+      {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/
-      }
+      },
+      {
+        // 対象となるファイルの拡張子
+        test: /\.(woff)$/,
+        // 画像をBase64として取り込む
+        type: "asset/inline",
+      },
     ]
   },
   resolve: {
@@ -25,4 +48,9 @@ module.exports = {
     open: true,
     port: 3000
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'styles/style.css'
+    }),
+  ]
 };

@@ -1,0 +1,100 @@
+@import "variables";
+
+@font-face {
+  font-family: "MainFont";
+  src: url("../font/NuAnkoMochi-Reg.woff") format("woff");
+}
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  font-family: "MainFont";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  width: 400px;
+}
+
+// Start Screen
+.titlescreen {
+  &__title {
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 32px;
+    color: $AccentColor;
+  }
+
+  &__message {
+    font-size: 20px;
+  }
+
+  &__namelabel {
+    margin-top: $basePixel * 2;
+  }
+
+  &__start {
+    margin-top: $basePixel * 2;
+    text-align: center;
+  }
+}
+
+// Standby Screen
+.counttostart {
+  font-size: $basePixel * 12;
+  text-align: center;
+}
+
+// Game Screen
+.header {
+  display: flex;
+  margin-bottom: $basePixel * 3;
+  &__point {
+    margin-left: auto;
+  }
+}
+
+.timer {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: $basePixel * 3;
+}
+
+.question {
+  display: flex;
+  justify-content: space-around;
+  font-size: 32px;
+  margin-bottom: $basePixel * 3;
+  &__item {
+    color: #233bef;
+    width: 15%;
+  }
+}
+
+.oparation {
+  text-align: center;
+  &__button {
+    width: 28%;
+    font-size: 28px;
+    margin-bottom: $basePixel;
+  }
+}
+
+//
+.finish {
+  text-align: center;
+  &__point {
+    font-size: 48pt;
+    color: #ff9b3b;
+  }
+  &__button {
+    text-align: center;
+    margin: $basePixel;
+  }
+}
