@@ -10,23 +10,22 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
   }
 
   async configure() {
-    this._countDown(3).then((time: any) => {
-      this.element.textContent = time.toString()
-      return this._countDown(time)
-    }).then((time: any) => {
-      this.element.textContent = time.toString()
-      return this._countDown(time)
-    }).then((time: any) => {
-      this._gameScreenShow()
-    })
+    // ３秒間待つ
+    let cnt = await this._countDown(this._count);
+    this.element.textContent = cnt.toString()
+    cnt = await this._countDown(cnt)
+    this.element.textContent = cnt.toString()
+    cnt = await this._countDown(cnt)
+
+    // ゲーム画面表示
+    this._gameScreenShow()
   }
 
+  // 待機表示
   private _countDown(time: number) {
-    return new Promise(resolve => {
+    return new Promise<number>(resolve => {
       setTimeout(function () {
-        console.log(time);
-        time--
-        resolve(time);
+        resolve(--time);
       }, 1000)
     }
     )
