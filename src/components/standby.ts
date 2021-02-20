@@ -1,6 +1,7 @@
 import { Component } from './abstract-component'
 import { NumberButton } from './number-button'
 import { QuestionDisplay } from './question'
+import { GameScreen } from './game-screen'
 
 export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
   constructor(private _count: number = 3) {
@@ -33,11 +34,14 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
 
   // 埋め込むアクション
   private _gameScreenShow() {
+    // 表示されているエレメント削除
     this.element.remove();
+
+    new GameScreen();
     new QuestionDisplay();
-    for (const n of this.arrayshuffle([...Array(10)].map((_, i) => i))) {
-      new NumberButton(n);
-    }
+    // for (const n of this.arrayshuffle([...Array(10)].map((_, i) => i))) {
+    //   new NumberButton(n);
+    // }
   }
 
   // 配列のシャッフル

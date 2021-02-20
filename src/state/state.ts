@@ -22,7 +22,6 @@ export class StateManager {
   static getInstance() {
     if (!StateManager._instance) {
       StateManager._instance = new StateManager();
-      // ... any one time initialization goes here ...
     }
     return StateManager._instance;
   }

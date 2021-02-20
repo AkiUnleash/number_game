@@ -3,7 +3,7 @@ import { stateOperation } from '../state/state'
 
 export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
-    super('question', 'app')
+    super('question', 'question_app', false)
     stateOperation.setQuestion();
     this.renderContent()
   }
@@ -12,13 +12,15 @@ export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement>
 
   renderContent() {
     const q = stateOperation.getQuestion()
-    const listEl = document.getElementById('Question_no')! as HTMLDivElement;
-    listEl.textContent = "";
+    const listEl = document.getElementById('question_app')! as HTMLDivElement;
+    let fragment = document.createDocumentFragment();
+
     for (const Item of q) {
-      const listItem = document.createElement('div');
-      listItem.textContent = Item;
-      listEl.appendChild(listItem);
+      const cn = this.element.cloneNode(true)
+      cn.textContent = Item
+      fragment.appendChild(cn);
     }
+    listEl.appendChild(fragment);
   }
 
 }

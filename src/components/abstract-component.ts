@@ -5,7 +5,8 @@ export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
 
   constructor(
     templateId: string,
-    hostElementId: string
+    hostElementId: string,
+    attachOnOff: boolean = true,
   ) {
     // 出力先の読み出し。
     this.hostElement = document.getElementById(hostElementId)! as T
@@ -22,7 +23,8 @@ export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
     this.element = importedNode.firstElementChild as U;
 
     // 表示
-    this.attach()
+    attachOnOff ? this.attach() : null
+
   }
   private attach() {
     this.hostElement.insertAdjacentElement('beforeend', this.element)

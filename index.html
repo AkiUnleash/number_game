@@ -34,18 +34,14 @@
     </template>
 
     <!-- GameScreen -->
-    <template id="start-button">
+    <template id="game-screen">
+      <div>
         <div class="header">
           <div class="header__Name">Akio</div>
           <div class="header__point">099910</div>
         </div>
         <div class="timer"> 30 sec</div>
-        <div class="question">
-          <div class="nes-container is-rounded question__item"> 1 </div>
-          <div class="nes-container is-rounded question__item"> 2 </div>
-          <div class="nes-container is-rounded question__item"> 3 </div>
-          <div class="nes-container is-rounded question__item"> 4 </div>
-          <div class="nes-container is-rounded question__item"> 5 </div>
+        <div id="question_app" class="question">
         </div>
         <div class="oparation">
           <button type="button" class="nes-btn oparation__button">0</button>
@@ -58,15 +54,16 @@
           <button type="button" class="nes-btn oparation__button">7</button>
           <button type="button" class="nes-btn oparation__button">8</button>
           <button type="button" class="nes-btn oparation__button">9</button>
-        </div>
-    </template>
+        </DIV>
+      </div>
+  </template>
 
     <!-- Game Screen -->
     <template id="number-button">
       <button type="button">1</button>
     </template>
     <template id="question">
-      <div id="Question_no"></div>
+      <div class="nes-container is-rounded question__item"> 1 </div>
     </template>
 
     <template>
