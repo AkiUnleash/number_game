@@ -9,27 +9,31 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
     this.configure()
   }
 
-  configure() {
-    this._countDown()
-
+  async configure() {
+    this._countDown(3).then((time: any) => {
+      this.element.textContent = time.toString()
+      return this._countDown(time)
+    }).then((time: any) => {
+      this.element.textContent = time.toString()
+      return this._countDown(time)
+    }).then((time: any) => {
+      this._gameScreenShow()
+    })
   }
 
-  private _countDown() {
-    let countDown = () => {
-      this.element.textContent = this._count.toString()
-      const id = setTimeout(() => { countDown(); }, 1000);
-      if (this._count === 0) {
-        this.clickHandler()
-        clearTimeout(id)
-      } else {
-        this._count--
-      }
+  private _countDown(time: number) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        console.log(time);
+        time--
+        resolve(time);
+      }, 1000)
     }
-    countDown()
+    )
   }
 
   // 埋め込むアクション
-  private clickHandler() {
+  private _gameScreenShow() {
     this.element.remove();
     new QuestionDisplay();
     for (const n of this.arrayshuffle([...Array(10)].map((_, i) => i))) {
