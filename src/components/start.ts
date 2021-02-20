@@ -1,34 +1,32 @@
 import { Component } from './abstract-component'
 import { NumberButton } from './number-button'
 import { QuestionDisplay } from './question'
+import { Standby } from './standby'
 
 export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
+  private elementStart: HTMLElement
   constructor() {
     super('start-button', 'app')
+
+    this.elementStart = this.element.querySelector(
+      '#start'
+    ) as HTMLInputElement;
+
     this.configure()
+
   }
 
   configure() {
     // ボタンクリック時のアクションを埋め込む
-    this.element.addEventListener('click', this.clickHandler.bind(this))
+    this.elementStart.addEventListener('click', this.clickHandler.bind(this))
   }
 
   // 埋め込むアクション
   private clickHandler(event: Event) {
-    event.preventDefault();
+    // エレメント削除
     this.element.remove();
-    new QuestionDisplay();
-    for (const n of this.arrayshuffle([...Array(10)].map((_, i) => i))) {
-      new NumberButton(n);
-    }
-  }
 
-  // 配列のシャッフル
-  private arrayshuffle(array: number[]) {
-    for (let i = array.length; 1 < i; i--) {
-      const k = Math.floor(Math.random() * i);
-      [array[k], array[i - 1]] = [array[i - 1], array[k]];
-    }
-    return array;
+    // 開始待機へ画面遷移
+    new Standby();
   }
 }
