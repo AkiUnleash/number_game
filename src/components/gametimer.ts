@@ -10,17 +10,26 @@ export class TimerScreen extends Component<HTMLDivElement, HTMLInputElement> {
 
   renderTimer() {
     const countDown = () => {
+
       this.element.textContent = `${--this.count} sec`
-      if (this.count === 0) {
-        clearTimeout(setTimer);
-        this.allremove()
-        new GameOverScreen()
+
+      switch (this.count) {
+        case 0:
+          clearTimeout(setTimer);
+          this.allremove()
+          new GameOverScreen()
+          break;
+        case 10:
+          this.element.classList.add('timer-screen__div--orange')
+          break;
+        case 3:
+          this.element.classList.add('timer-screen__div--red')
+          break;
       }
     }
 
     const setTimer = setInterval(countDown.bind(undefined), 1000)
   }
-
 
   configure() {
   }

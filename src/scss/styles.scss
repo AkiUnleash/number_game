@@ -28,7 +28,7 @@ body {
     margin-bottom: 8px;
     text-align: center;
     font-size: 32px;
-    color: $AccentColor;
+    color: $MainColor;
   }
 
   &__message {
@@ -64,6 +64,12 @@ body {
   font-size: 24px;
   text-align: center;
   margin-bottom: $basePixel * 3;
+  &__div--orange {
+    color: $MainColor;
+  }
+  &__div--red {
+    color: $AccentColor;
+  }
 }
 
 .question {
