@@ -30,6 +30,11 @@ export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
     this.hostElement.insertAdjacentElement('beforeend', this.element)
   }
 
+  protected allremove() {
+    const elm = document.getElementById('app')! as HTMLDivElement
+    elm.innerHTML = ''
+  }
+
   // 必須メソッド
   // ボタンの動きを付ける
   protected abstract configure(): void;

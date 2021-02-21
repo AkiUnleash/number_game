@@ -13,6 +13,7 @@ export class TimerScreen extends Component<HTMLDivElement, HTMLInputElement> {
       this.element.textContent = `${--this.count} sec`
       if (this.count === 0) {
         clearTimeout(setTimer);
+        this.allremove()
         new GameOverScreen()
       }
     }

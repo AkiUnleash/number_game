@@ -12,7 +12,7 @@
 
     <!-- TEMPLATE -->
     <!-- Start Screen -->
-    <template id="start-button">
+    <template id="start-screen">
       <div class="titlescreen">
         <h1 class="titlescreen__title">ノートレゲーム</h1>
         <div class="titlescreen__message nes-container is-rounded">
@@ -21,11 +21,14 @@
         <div class="nes-field">
           <label for="name_field" class="titlescreen__namelabel">Your nicname</label>
           <input type="text" id="name_field" placeholder="ニックネーム" class="nes-input titlescreen__nameinput">
-          <div class="titlescreen__start">
-            <button id="start" class="nes-btn is-primary">START</button>
+          <div id="startbutton-postion" class="titlescreen__start">
           </div>
         </div>
       </div> 
+    </template>
+
+    <template id="start-button">
+      <button id="start" class="nes-btn is-primary">START</button>
     </template>
 
     <!-- Standby Screen -->

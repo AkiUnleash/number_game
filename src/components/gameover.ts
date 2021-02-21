@@ -4,8 +4,6 @@ import { stateOperation } from '../state/state'
 export class GameOverScreen extends Component<HTMLDivElement, HTMLInputElement> {
 
   constructor() {
-    const elm = document.getElementById('app')! as HTMLDivElement
-    elm.innerHTML = ''
 
     super('gameover', 'app')
 
