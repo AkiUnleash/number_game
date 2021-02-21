@@ -2,6 +2,7 @@ import { Component } from './abstract-component'
 import { NumberButton } from './number-button'
 import { QuestionDisplay } from './question'
 import { GameScreen } from './game-screen'
+import { TimerScreen } from './gametimer'
 
 export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
   constructor(private _count: number = 3) {
@@ -45,6 +46,9 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
 
     // 数字入力ボタンの設置
     new NumberButton();
+
+    // カウントダウンの設置
+    new TimerScreen();
 
   }
 

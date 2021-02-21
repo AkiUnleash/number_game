@@ -38,31 +38,37 @@
       <div>
         <div class="header">
           <div class="header__Name">Akio</div>
-          <div class="header__point">099910</div>
+          <div class="header__point">000000</div>
         </div>
-        <div class="timer"> 30 sec</div>
+        <div id="timer-screen" class="timer-screen">
+        </div>
         <div id="question_app" class="question">
         </div>
         <div id="oparation" class="oparation">
         </DIV>
       </div>
-  </template>
+    </template>
 
-    <!-- Game Screen -->
     <template id="number-button">
       <button type="button" class="nes-btn oparation__button">0</button>
     </template>
+
     <template id="question">
       <div class="nes-container is-rounded question__item"> 1 </div>
     </template>
 
-    <template>
-        <div class="finish">
-          <div> Your Points is </div>
-          <span class="finish__point"> 3500 </span><span> pt </span>
-        </div>
-        <div class="finish__button"> <button class="nes-btn is-primary">RESTART</button> </div>
-        <div class="finish__button"> <button class="nes-btn">TOP</button> </div>
+    <template id="timer">
+      <div>30 sec</div>
+    </template>
+
+    <!-- Game Over Screen -->
+    <template id="gameover">
+      <div class="finish">
+        <div> Your Points is </div>
+        <span class="finish__point"> 3500 </span><span> pt </span>
+      </div>
+      <div class="finish__button"> <button class="nes-btn is-primary">RESTART</button> </div>
+      <div class="finish__button"> <button class="nes-btn">TOP</button> </div>
     </template>
     <!-- TEMPLATE - end  -->
 
