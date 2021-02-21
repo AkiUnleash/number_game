@@ -1,12 +1,13 @@
 const listOfPoints = {
   match: 10,
   mismatch: -10,
-  success: 90
+  success: 100
 }
 
 interface State {
   question: string[];
-  point: number[];
+  point: number;
+  username: string;
 }
 
 export class StateManager {
@@ -15,7 +16,11 @@ export class StateManager {
   private listeners: any[] = [];
 
   constructor() {
-    this.state = { question: [], point: [] }
+    this.state = {
+      question: [],
+      point: 0,
+      username: ''
+    }
   }
 
   // シングルトン
@@ -31,7 +36,7 @@ export class StateManager {
   }
 
   setQuestion() {
-    let q = (Math.floor(Math.random() * 100000 - 1)).toString()
+    let q = (Math.floor(Math.random() * 100000 - 1)).toString().padStart(5, '0')
     this.state.question = q.toString().split('')
     for (const listenerFn of this.listeners) {
       console.log(this.listeners);
@@ -44,23 +49,31 @@ export class StateManager {
   }
 
   checkTheAnswer(answer: string) {
+
     if (answer === this.state.question[0]) {
       this.state.question.shift();
-      this.state.point.push(listOfPoints.match);
+      this.state.point += listOfPoints.match;
     } else {
-      this.state.point.push(listOfPoints.mismatch);
+      this.state.point += listOfPoints.mismatch;
     }
+
     if (this.state.question.length === 0) {
       this.setQuestion()
-      this.state.point.push(listOfPoints.success);
-    } else {
-      for (const listenerFn of this.listeners) {
-        listenerFn(this.state.question.slice())
-      }
+      this.state.point += listOfPoints.success;
     }
-    console.log(this.state.question);
-    console.log(this.state.point);
 
+    for (const listenerFn of this.listeners) {
+      listenerFn(this.state.question.slice(), 'question')
+      listenerFn(this.state.point, 'point')
+    }
+  }
+
+  setUsername(username: string) {
+    this.state.username = username;
+  }
+
+  getUsername() {
+    return this.state.username;
   }
 }
 

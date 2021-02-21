@@ -3,6 +3,8 @@ import { NumberButton } from './number-button'
 import { QuestionDisplay } from './question'
 import { GameScreen } from './game-screen'
 import { TimerScreen } from './gametimer'
+import { PointComponent } from './gamepoint'
+import { UsernameComponent } from './username'
 
 export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
   constructor(private _count: number = 3) {
@@ -41,6 +43,12 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
     // ゲームスクリーンの表示
     new GameScreen();
 
+    //  ユーザー名表示
+    new UsernameComponent()
+
+    //  ポイント表示
+    new PointComponent()
+
     // 問の表示
     new QuestionDisplay();
 
@@ -49,6 +57,7 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
 
     // カウントダウンの設置
     new TimerScreen();
+
 
   }
 

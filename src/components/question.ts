@@ -11,10 +11,12 @@ export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement>
 
     stateOperation.setQuestion();
 
-    stateOperation.addListener((question: any[]) => {
-      this.assignedState = question
-      this.elementRemove()
-      this.renderContent()
+    stateOperation.addListener((question: any[], flg: string) => {
+      if (flg === 'question') {
+        this.assignedState = question
+        this.elementRemove()
+        this.renderContent()
+      }
     })
 
     this.renderContent()
