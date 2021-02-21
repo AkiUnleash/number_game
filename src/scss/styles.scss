@@ -80,6 +80,9 @@ body {
   &__item {
     color: #233bef;
     width: 15%;
+    &--brank {
+      width: 20%;
+    }
   }
 }
 
@@ -92,7 +95,6 @@ body {
   }
 }
 
-//
 .finish {
   text-align: center;
   &__point {
