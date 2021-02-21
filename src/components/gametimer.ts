@@ -3,7 +3,7 @@ import { GameOverScreen } from './gameover'
 
 export class TimerScreen extends Component<HTMLDivElement, HTMLInputElement> {
 
-  constructor(private count: number = 1) {
+  constructor(private count: number = 30) {
     super('timer', 'timer-screen')
     this.renderTimer()
   }
