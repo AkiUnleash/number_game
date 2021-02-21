@@ -5,7 +5,7 @@ export class GameStart extends Component<HTMLDivElement, HTMLInputElement> {
 
   constructor() {
     super('start-screen', 'app');
-    new StartButton();
+    new StartButton('startbutton-postion');
   }
 
   configure() { }

@@ -3,9 +3,20 @@ import { Standby } from './standby'
 import { stateOperation } from '../state/state'
 
 export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
+  private restart: boolean
 
-  constructor() {
-    super('start-button', 'startbutton-postion')
+  constructor(
+    hostElementId: string,
+    restart: boolean = false,
+  ) {
+
+    super('start-button', hostElementId)
+
+    this.restart = restart;
+    if (this.restart === true) {
+      this.element.textContent = "RESTART";
+    }
+
     this.configure()
   }
 
@@ -18,8 +29,10 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
   private clickHandler(event: Event) {
 
     // ユーザー名保管
-    const elementUsername = document.getElementById('name_field') as HTMLInputElement;
-    stateOperation.setUsername(elementUsername.value)
+    if (this.restart === false) {
+      const elementUsername = document.getElementById('name_field') as HTMLInputElement;
+      stateOperation.setUsername(elementUsername.value)
+    }
 
     // エレメント削除
     this.allremove()

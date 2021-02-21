@@ -1,5 +1,6 @@
 import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
+import { StartButton } from './startbutton'
 
 export class GameOverScreen extends Component<HTMLDivElement, HTMLInputElement> {
 
@@ -8,6 +9,7 @@ export class GameOverScreen extends Component<HTMLDivElement, HTMLInputElement> 
     super('gameover', 'app')
 
     this.renderPoint()
+    new StartButton('startbutton-potion', true);
   }
 
   renderPoint() {
