@@ -2,9 +2,21 @@ import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
 
 export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement> {
+  assignedState: any[];
+
   constructor() {
     super('question', 'question_app', false)
+
+    this.assignedState = []
+
     stateOperation.setQuestion();
+
+    stateOperation.addListener((question: any[]) => {
+      this.assignedState = question
+      this.elementRemove()
+      this.renderContent()
+    })
+
     this.renderContent()
   }
 
@@ -21,6 +33,11 @@ export class QuestionDisplay extends Component<HTMLDivElement, HTMLInputElement>
       fragment.appendChild(cn);
     }
     listEl.appendChild(fragment);
+  }
+
+  elementRemove() {
+    const listEl = document.getElementById('question_app')! as HTMLDivElement;
+    listEl.innerHTML = ''
   }
 
 }

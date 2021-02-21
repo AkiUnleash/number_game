@@ -58,6 +58,7 @@ export class StateManager {
         listenerFn(this.state.question.slice())
       }
     }
+    console.log(this.state.question);
     console.log(this.state.point);
 
   }

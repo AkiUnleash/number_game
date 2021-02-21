@@ -37,20 +37,16 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
     // 表示されているエレメント削除
     this.element.remove();
 
+    // ゲームスクリーンの表示
     new GameScreen();
+
+    // 問の表示
     new QuestionDisplay();
-    // for (const n of this.arrayshuffle([...Array(10)].map((_, i) => i))) {
-    //   new NumberButton(n);
-    // }
+
+    // 数字入力ボタンの設置
+    new NumberButton();
+
   }
 
-  // 配列のシャッフル
-  private arrayshuffle(array: number[]) {
-    for (let i = array.length; 1 < i; i--) {
-      const k = Math.floor(Math.random() * i);
-      [array[k], array[i - 1]] = [array[i - 1], array[k]];
-    }
-    return array;
-  }
 
 }

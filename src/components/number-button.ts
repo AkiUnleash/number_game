@@ -2,37 +2,41 @@ import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
 
 export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
-  assignedState: any[];
-
-  constructor(private acrivenumber: number) {
-    super('number-button', 'app')
-    this.assignedState = []
-
-    stateOperation.addListener((question: any[]) => {
-      this.assignedState = question
-      this.renderQuestion()
-    })
+  constructor() {
+    super('number-button', 'oparation', false)
 
     this.configure()
   }
 
-  renderQuestion() {
-    const listEl = document.getElementById('Question_no')! as HTMLDivElement;
-    listEl.textContent = "";
-    for (const Item of this.assignedState) {
-      const listItem = document.createElement('div');
-      listItem.textContent = Item;
-      listEl.appendChild(listItem);
-    }
-  }
-
   configure() {
-    this.element.addEventListener('click', this.submitHandler.bind(this))
-    this.element.value = this.acrivenumber.toString();
+    // 数字入力ボタンを挿入する場所を指定。
+    const listEl = document.getElementById('oparation')! as HTMLDivElement;
+    let fragment = document.createDocumentFragment();
+
+    // 0から9まで繰り返す
+    for (const Item of this._arrayshuffle([...Array(10)].map((_, i) => i))) {
+      // 取得したエレメントをクローン
+      const cn = this.element.cloneNode(true);
+      cn.textContent = Item.toString();
+      cn.addEventListener('click', () => { this._clickHandler(Item.toString()) });
+      // 蓄積
+      fragment.appendChild(cn);
+    }
+    // 蓄積したエレメントを設置
+    listEl.appendChild(fragment);
   }
 
-  private submitHandler(event: Event) {
-    event.preventDefault();
-    stateOperation.checkTheAnswer(this.element.value)
+  private _clickHandler(count: string) {
+    stateOperation.checkTheAnswer(count);
+  }
+
+  // 配列のシャッフル
+  private _arrayshuffle(array: number[]) {
+    for (let i = array.length; 1 < i; i--) {
+      const k = Math.floor(Math.random() * i);
+      // 配列同士を入れ替える。
+      [array[k], array[i - 1]] = [array[i - 1], array[k]];
+    }
+    return array;
   }
 }
