@@ -27,7 +27,6 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
 
   // 埋め込むアクション
   private clickHandler(event: Event) {
-
     // ユーザー名保管
     if (this.restart === false) {
       const elementUsername = document.getElementById('name_field') as HTMLInputElement;
@@ -39,7 +38,6 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
 
     // 開始待機へ画面遷移
     new Standby();
-
   }
 
 }
