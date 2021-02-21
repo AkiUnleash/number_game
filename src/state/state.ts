@@ -1,7 +1,7 @@
 const listOfPoints = {
-  match: 10,
-  mismatch: -10,
-  success: 100
+  match: 100,
+  mismatch: -100,
+  success: 1000
 }
 
 interface State {
@@ -66,6 +66,10 @@ export class StateManager {
       listenerFn(this.state.question.slice(), 'question')
       listenerFn(this.state.point, 'point')
     }
+  }
+
+  getPoint() {
+    return this.state.point.toString();
   }
 
   setUsername(username: string) {

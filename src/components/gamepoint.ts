@@ -10,7 +10,7 @@ export class PointComponent extends Component<HTMLDivElement, HTMLInputElement> 
 
     stateOperation.addListener((point: number, flg: string) => {
       if (flg === 'point') {
-        this._point = point.toString().padStart(5, '0')
+        this._point = point.toString().padStart(6, '0')
         this.renderPoint();
       }
     })
