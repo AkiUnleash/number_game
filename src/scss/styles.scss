@@ -43,6 +43,10 @@ body {
     margin-top: $basePixel * 2;
     text-align: center;
   }
+
+  &__feedback {
+    color: $AccentColor;
+  }
 }
 
 // Standby Screen

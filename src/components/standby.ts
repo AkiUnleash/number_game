@@ -57,9 +57,5 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
 
     // カウントダウンの設置
     new TimerScreen();
-
-
   }
-
-
 }
