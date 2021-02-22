@@ -39,6 +39,10 @@ body {
     margin-top: $basePixel * 2;
   }
 
+  &__nameinput {
+    background-color: $SubColor;
+  }
+
   &__start {
     margin-top: $basePixel * 2;
     text-align: center;
