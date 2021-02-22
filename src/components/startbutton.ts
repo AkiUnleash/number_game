@@ -1,6 +1,7 @@
 import { Component } from './abstract-component'
 import { Standby } from './standby'
 import { stateOperation } from '../state/state'
+import { Autobind } from '../util/autobind'
 
 export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
   private restart: boolean
@@ -22,10 +23,11 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
 
   configure() {
     // ボタンクリック時のアクションを埋め込む
-    this.element.addEventListener('click', this.clickHandler.bind(this))
+    this.element.addEventListener('click', this.clickHandler)
   }
 
   // 埋め込むアクション
+  @Autobind
   private clickHandler(event: Event) {
     // ユーザー名保管
     if (this.restart === false) {
@@ -39,5 +41,4 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
     // 開始待機へ画面遷移
     new Standby();
   }
-
 }
