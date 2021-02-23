@@ -43,7 +43,11 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
         feedbackEl.textContent = validator.getErrorMessage()
         return
       }
+
+    } else {
+      stateOperation.setPointInitialize()
     }
+
 
     soundOperation.tap_button_play()
 

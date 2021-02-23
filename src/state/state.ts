@@ -76,6 +76,10 @@ export class StateManager {
     return this.state.point.toString();
   }
 
+  setPointInitialize() {
+    this.state.point = 0;
+  }
+
   setUsername(username: string) {
     this.state.username = username;
   }
@@ -83,6 +87,7 @@ export class StateManager {
   getUsername() {
     return this.state.username;
   }
+
 
   getSound() {
     return this.state.sound;
