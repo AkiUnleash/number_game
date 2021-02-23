@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         // 対象となるファイルの拡張子
-        test: /\.(woff|png|jpg)$/,
+        test: /\.(woff|png|jpg|mp3)$/,
         // 画像をBase64として取り込む
         type: "asset/inline",
       },

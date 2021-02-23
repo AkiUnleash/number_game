@@ -1,10 +1,10 @@
 import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
+import { soundOperation } from '../util/sound'
 
 export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
     super('number-button', 'oparation', false)
-
     this.configure()
   }
 
@@ -28,6 +28,7 @@ export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
 
   private _clickHandler(count: string) {
     stateOperation.checkTheAnswer(count);
+    soundOperation.tap_number_play()
   }
 
   // 配列のシャッフル

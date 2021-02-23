@@ -1,8 +1,9 @@
 import { Component } from './abstract-component'
 import { Standby } from './standby'
-import { stateOperation } from '../state/state'
 import { Autobind } from '../util/autobind'
 import { Validator } from '../util/varidetor'
+import { stateOperation } from '../state/state'
+import { soundOperation } from '../util/sound'
 
 export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
   private restart: boolean
@@ -43,6 +44,8 @@ export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
         return
       }
     }
+
+    soundOperation.tap_button_play()
 
     // エレメント削除
     this.allremove()

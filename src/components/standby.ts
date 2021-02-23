@@ -1,15 +1,18 @@
 import { Component } from './abstract-component'
+import { stateOperation } from '../state/state'
 import { NumberButton } from './number-button'
 import { QuestionDisplay } from './question'
 import { GameScreen } from './game-screen'
 import { TimerScreen } from './gametimer'
 import { PointComponent } from './gamepoint'
 import { UsernameComponent } from './username'
+import { soundOperation } from '../util/sound'
 
 export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
   constructor(private _count: number = 3) {
     super('standby', 'app')
-
+    stateOperation.setScreen('standby')
+    soundOperation.now()
     this.configure()
   }
 
@@ -17,8 +20,10 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
     // ３秒間待つ
     let cnt = await this._countDown(this._count);
     this.element.textContent = cnt.toString()
+    soundOperation.countdown_play()
     cnt = await this._countDown(cnt)
     this.element.textContent = cnt.toString()
+    soundOperation.countdown_play()
     cnt = await this._countDown(cnt)
 
     // ゲーム画面表示

@@ -1,3 +1,4 @@
+import { soundOperation } from '../util/sound'
 import { Component } from './abstract-component'
 import { GameOverScreen } from './gameover'
 
@@ -25,6 +26,9 @@ export class TimerScreen extends Component<HTMLDivElement, HTMLInputElement> {
         case 3:
           this.element.classList.add('timer-screen__div--red')
           break;
+      }
+      if (this.count <= 3 && this.count >= 1) {
+        soundOperation.countdown_play()
       }
     }
 

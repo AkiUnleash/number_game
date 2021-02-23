@@ -8,6 +8,8 @@ interface State {
   question: string[];
   point: number;
   username: string;
+  sound: boolean;
+  scene: string;
 }
 
 export class StateManager {
@@ -19,7 +21,9 @@ export class StateManager {
     this.state = {
       question: [],
       point: 0,
-      username: ''
+      username: '',
+      sound: false,
+      scene: '',
     }
   }
 
@@ -78,6 +82,22 @@ export class StateManager {
 
   getUsername() {
     return this.state.username;
+  }
+
+  getSound() {
+    return this.state.sound;
+  }
+
+  setSound() {
+    this.state.sound = !this.state.sound
+  }
+
+  getScene() {
+    return this.state.scene;
+  }
+
+  setScreen(scene: string) {
+    this.state.scene = scene
   }
 }
 
