@@ -27,9 +27,6 @@ export class SoundButton extends Component<HTMLDivElement, HTMLInputElement> {
       this.element.src = imageSoundOff
     }
 
-    console.log(stateOperation.getScene());
-
     soundOperation.now()
-
   }
 }

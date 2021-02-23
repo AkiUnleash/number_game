@@ -43,7 +43,6 @@ export class StateManager {
     let q = (Math.floor(Math.random() * 100000 - 1)).toString().padStart(5, '0')
     this.state.question = q.toString().split('')
     for (const listenerFn of this.listeners) {
-      console.log(this.listeners);
       listenerFn(this.state.question.slice())
     }
   }
