@@ -24,6 +24,11 @@ body {
 
 // Start Screen
 .titlescreen {
+  &__img {
+    display: block;
+    width: 124px;
+    margin: auto;
+  }
   &__title {
     margin-bottom: 8px;
     text-align: center;
