@@ -1,6 +1,6 @@
 import { Component } from './abstract-component'
 import { StartButton } from './startbutton'
-import logoImage from '../images/logo.png'
+import logoImage from '../assets/images/logo.png'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
 

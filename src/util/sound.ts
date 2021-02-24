@@ -1,9 +1,9 @@
-import soundOpening from '../mp3/opning.mp3';
-import soundCountdown from '../mp3/countdown.mp3';
-import soundGameplay from '../mp3/gameplay.mp3'
-import soundGameover from '../mp3/gameover.mp3'
-import tapNumber from '../mp3/tap.mp3';
-import tapButton from '../mp3/button.mp3'
+import soundOpening from '../assets/mp3/opning.mp3';
+import soundCountdown from '../assets/mp3/countdown.mp3';
+import soundGameplay from '../assets/mp3/gameplay.mp3'
+import soundGameover from '../assets/mp3/gameover.mp3'
+import tapNumber from '../assets/mp3/tap.mp3';
+import tapButton from '../assets/mp3/button.mp3'
 import { stateOperation } from '../state/state';
 
 class SoundControl {

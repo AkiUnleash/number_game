@@ -1,0 +1,75 @@
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    //- link(rel="shortcut icon" href="./favicon.ico")
+    //- link(rel="apple-touch-icon" href="./apple-touch-icon.png")
+    //- link(rel="icon" type="image/png" href="./android-chrome-96x96.png")
+    title ノートレゲーム
+
+  body
+    //- <!-- TEMPLATE -->
+    //- <!-- Start Screen -->
+    template#start-screen
+      div#titlescreen.titlescreen
+        h1.titlescreen__title ノートレゲーム
+        div.titlescreen__message.nes-container.is-rounded
+          p 表示された数字を３０秒間に、どれだけ多く押せるかをきそうゲームです。
+        div.nes-field
+          label.titlescreen__namelabel(for="name_field") Your nicname
+          input#name_field.nes-input.titlescreen__nameinput(type="text" placeholder="ニックネーム" autofocus)
+          div#feedback.titlescreen__feedback
+          div#startbutton-postion.titlescreen__start
+
+    template#start-button
+      button#start.nes-btn.is-primary START
+
+    //- <!-- Standby Screen -->
+    template#standby
+      div.counttostart 3
+
+    //- <!-- GameScreen -->
+    template#game-screen
+      div
+        div#header.header
+        div#timer-screen.timer-screen
+        div#question_app.question
+        div#oparation.oparation
+
+    template#username
+      div.header__Name Akio
+
+    template#point
+      div.header__point 000000
+
+    template#number-button
+      button.nes-btn.oparation__button(type="button") 0
+
+    template#question
+      div.nes-container.is-rounded.question__item 1
+
+    template#timer
+      div 30 sec
+
+    //- <!-- Game Over Screen -->
+    template#gameover
+      div
+        div.finish
+          div Your Points is
+          span#finish__point.finish__point 3500 
+          span pt 
+        div#startbutton-potion.finish__button
+        div#topbutton-potion.finish__button
+
+    template#top-button
+      button.nes-btn TOP
+
+    //- <!-- footer -->
+    template#sound-button
+      img.footer__sound
+
+    //- <!-- TEMPLATE - end  -->
+    div.container
+      div#app
+    footer#footer.footer

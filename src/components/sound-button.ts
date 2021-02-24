@@ -1,6 +1,6 @@
 import { Component } from './abstract-component'
-import imageSoundOn from '../images/sound-on.png'
-import imageSoundOff from '../images/sound-off.png'
+import imageSoundOn from '../assets/images/sound-on.png'
+import imageSoundOff from '../assets/images/sound-off.png'
 import { Autobind } from '../util/autobind'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
