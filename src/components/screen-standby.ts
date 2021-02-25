@@ -1,11 +1,11 @@
 import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
-import { NumberButton } from './number-button'
-import { QuestionDisplay } from './question'
-import { GameScreen } from './game-screen'
-import { TimerScreen } from './gametimer'
-import { PointComponent } from './gamepoint'
-import { UsernameComponent } from './username'
+import { ScreenGameplay } from './screen-gameplay'
+import { DisplayQuestion } from './display-question'
+import { DisplayTimer } from './display-gametimer'
+import { DisplayPoint } from './display-gamepoint'
+import { DisplayUsername } from './display-username'
+import { ButtonNumber } from './button-number'
 import { soundOperation } from '../util/sound'
 
 export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
@@ -46,21 +46,21 @@ export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
     this.element.remove();
 
     // ゲームスクリーンの表示
-    new GameScreen();
+    new ScreenGameplay();
 
     //  ユーザー名表示
-    new UsernameComponent()
+    new DisplayUsername()
 
     //  ポイント表示
-    new PointComponent()
+    new DisplayPoint()
 
     // 問の表示
-    new QuestionDisplay();
+    new DisplayQuestion();
 
     // 数字入力ボタンの設置
-    new NumberButton();
+    new ButtonNumber();
 
     // カウントダウンの設置
-    new TimerScreen();
+    new DisplayTimer();
   }
 }

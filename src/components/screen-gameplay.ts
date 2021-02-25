@@ -2,7 +2,7 @@ import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
 
-export class GameScreen extends Component<HTMLDivElement, HTMLInputElement> {
+export class ScreenGameplay extends Component<HTMLDivElement, HTMLInputElement> {
 
   constructor() {
     super('game-screen', 'app')

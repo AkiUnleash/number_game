@@ -1,10 +1,10 @@
 import { Component } from './abstract-component'
-import { GameStart } from './gamestart'
+import { ScreenGamestart } from './screen-gamestart'
 import { Autobind } from '../util/autobind'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
 
-export class TopButton extends Component<HTMLDivElement, HTMLInputElement> {
+export class ButtonTop extends Component<HTMLDivElement, HTMLInputElement> {
 
   constructor() {
     super('top-button', 'topbutton-potion')
@@ -26,6 +26,6 @@ export class TopButton extends Component<HTMLDivElement, HTMLInputElement> {
     // エレメント削除
     this.allremove()
 
-    new GameStart()
+    new ScreenGamestart()
   }
 }

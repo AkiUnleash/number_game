@@ -1,7 +1,7 @@
 import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
 
-export class PointComponent extends Component<HTMLDivElement, HTMLInputElement> {
+export class DisplayPoint extends Component<HTMLDivElement, HTMLInputElement> {
   private _point: string
   constructor() {
     super('point', 'header')

@@ -5,7 +5,7 @@ import { Autobind } from '../util/autobind'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
 
-export class SoundButton extends Component<HTMLDivElement, HTMLInputElement> {
+export class ButtonSound extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
     super('sound-button', 'footer')
     this.element.src = imageSoundOff

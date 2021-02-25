@@ -2,7 +2,7 @@ import { Component } from './abstract-component'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
 
-export class NumberButton extends Component<HTMLDivElement, HTMLInputElement> {
+export class ButtonNumber extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
     super('number-button', 'oparation', false)
     this.configure()

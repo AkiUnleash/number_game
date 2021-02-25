@@ -1,7 +1,7 @@
-import { GameStart } from './components/gamestart'
-import { SoundButton } from './components/sound-button'
+import { ScreenGamestart } from './components/screen-gamestart'
+import { ButtonSound } from './components/button-sound'
 import './assets/scss/styles.scss'
 import "nes.css/css/nes.min.css";
 
-new GameStart();
-new SoundButton();
+new ScreenGamestart();
+new ButtonSound();

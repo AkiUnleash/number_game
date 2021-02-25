@@ -1,8 +1,8 @@
 import { soundOperation } from '../util/sound'
 import { Component } from './abstract-component'
-import { GameOverScreen } from './gameover'
+import { ScreenGameover } from './screen-gameover'
 
-export class TimerScreen extends Component<HTMLDivElement, HTMLInputElement> {
+export class DisplayTimer extends Component<HTMLDivElement, HTMLInputElement> {
 
   constructor(private count: number = 30) {
     super('timer', 'timer-screen')
@@ -18,7 +18,7 @@ export class TimerScreen extends Component<HTMLDivElement, HTMLInputElement> {
         case 0:
           clearTimeout(setTimer);
           this.allremove()
-          new GameOverScreen()
+          new ScreenGameover()
           break;
         case 10:
           this.element.classList.add('timer-screen__div--orange')

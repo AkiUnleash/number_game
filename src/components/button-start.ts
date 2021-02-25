@@ -1,11 +1,11 @@
 import { Component } from './abstract-component'
-import { Standby } from './standby'
+import { Standby } from './screen-standby'
 import { Autobind } from '../util/autobind'
 import { Validator } from '../util/varidetor'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
 
-export class StartButton extends Component<HTMLDivElement, HTMLInputElement> {
+export class ButtonStart extends Component<HTMLDivElement, HTMLInputElement> {
   private restart: boolean
 
   constructor(
