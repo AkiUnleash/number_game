@@ -130,3 +130,26 @@ body {
     margin: $basePixel;
   }
 }
+
+.ranking-title {
+  text-align: center;
+}
+
+.ranking-table {
+  margin: 3%;
+  &__th {
+    &--no {
+      width: 15%;
+    }
+    &--name {
+      width: 62%;
+    }
+    &--point {
+      width: 20%;
+      text-align: right;
+    }
+  }
+}
+.ranking-topbutton {
+  text-align: center;
+}

@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import "firebase/firestore";
 
-type User = {
+export type User = {
   nickname: string
   point: number
 };
@@ -35,7 +35,7 @@ export class FirebaseControl {
   // userデータ取得
   async inportdata() {
     const _users: User[] = []
-    const snapshot = await this._db.collection('users').orderBy('point').limit(100).get();
+    const snapshot = await this._db.collection('users').orderBy('point', "desc").limit(10).get();
     snapshot.forEach(doc => _users.push(doc.data() as User));
     return _users;
   }
