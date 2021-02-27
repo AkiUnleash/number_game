@@ -1,12 +1,8 @@
 html(lang="ja")
   head
     meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible" content="ie=edge")
-    //- link(rel="shortcut icon" href="./favicon.ico")
-    //- link(rel="apple-touch-icon" href="./apple-touch-icon.png")
-    //- link(rel="icon" type="image/png" href="./android-chrome-96x96.png")
     meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
     meta(name="robots" content="noindex")
     title ノートレゲーム
 
@@ -61,6 +57,8 @@ html(lang="ja")
           div Your Points is
           span#finish__point.finish__point 3500 
           span pt 
+          div Rank 
+            span#finish__ranknumber 1th
         div#startbutton-potion.finish__button
         div#topbutton-potion.finish__button
 
@@ -70,6 +68,28 @@ html(lang="ja")
     //- <!-- footer -->
     template#sound-button
       img.footer__sound
+
+    //- Ranking
+    template#ranking-template
+      div 
+        div.ranking-title Ranking Top10
+        table.ranking-table
+          thead 
+            tr
+              th.ranking-table__th--no No 
+              th.ranking-table__th--name Name 
+              th.ranking-table__th--point Point
+          tbody#ranking-body
+        div.ranking-topbutton#topbutton-potion
+      
+    template#ranking-template-data 
+      tr 
+        td#ranking-no 1
+        td#ranking-name abcde
+        td#ranking-point  777
+
+    template#ranking-button
+      button.nes-btn Ranking
 
     //- <!-- TEMPLATE - end  -->
     div.container

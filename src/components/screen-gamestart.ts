@@ -1,5 +1,6 @@
 import { Component } from './abstract-component'
 import { ButtonStart } from './button-start'
+import { ButtonRanking } from './button-ranking'
 import logoImage from '../assets/images/logo.png'
 import { stateOperation } from '../state/state'
 import { soundOperation } from '../util/sound'
@@ -13,6 +14,7 @@ export class ScreenGamestart extends Component<HTMLDivElement, HTMLInputElement>
     soundOperation.now()
 
     new ButtonStart('startbutton-postion');
+    new ButtonRanking();
     this.logorender();
 
   }

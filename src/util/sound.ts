@@ -105,6 +105,8 @@ class SoundControl {
         this.gameplay_stop()
         this.gameover()
         break;
+      case 'ranking':
+        break;
     }
   }
 }
