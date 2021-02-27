@@ -1,11 +1,13 @@
 import { Component } from './abstract-component'
-import { ScreenRanking } from './screen-ranking'
+import { ScreenCredit } from './screen-credit'
 import { Autobind } from '../util/autobind'
+import { stateOperation } from '../state/state'
+import { soundOperation } from '../util/sound'
 
-export class ButtonRanking extends Component<HTMLDivElement, HTMLInputElement> {
+export class ButtonCredit extends Component<HTMLDivElement, HTMLInputElement> {
 
   constructor() {
-    super('ranking-button', 'optionbutton-postion')
+    super('credit-button', 'optionbutton-postion')
     this.configure();
   }
 
@@ -18,9 +20,12 @@ export class ButtonRanking extends Component<HTMLDivElement, HTMLInputElement> {
   @Autobind
   private clickHandler(event: Event) {
 
+    soundOperation.tap_button_play()
+    stateOperation.setPointInitialize()
+
     // エレメント削除
     this.allremove()
 
-    new ScreenRanking()
+    new ScreenCredit()
   }
 }
