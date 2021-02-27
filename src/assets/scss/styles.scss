@@ -4,7 +4,10 @@
   font-family: "MainFont";
   src: url("../font/NuAnkoMochi-Reg.woff") format("woff");
 }
-html,
+html {
+  height: 100%;
+  touch-action: manipulation;
+}
 body {
   height: 100%;
 }
