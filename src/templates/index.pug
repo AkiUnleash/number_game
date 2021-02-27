@@ -19,6 +19,7 @@ html(lang="ja")
           input#name_field.nes-input.titlescreen__nameinput(type="text" placeholder="ニックネーム" autofocus)
           div#feedback.titlescreen__feedback
           div#startbutton-postion.titlescreen__start
+          div#optionbutton-postion.optionbutton-postion
 
     template#start-button
       button#start.nes-btn.is-primary START
@@ -91,7 +92,37 @@ html(lang="ja")
     template#ranking-button
       button.nes-btn Ranking
 
+    template#credit
+      div
+        div MUSIC
+        ul 
+          li 
+            a(href="http://pansound.com/panicpumpkin/" target="_blank" rel="noopener norefrrer") ゆきとどくもうどく|PANICPUMPKIN
+          li 
+            a(href="http://pansound.com/panicpumpkin/" target="_blank" rel="noopener norefrrer") じごくのるーれっと|PANICPUMPKIN
+          li
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") イベンドクリア|８ビットサウンド工房
+        div Sound effect
+        ul 
+          li 
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") コインをゲット_1|８ビットサウンド工房
+          li 
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") ティッ|８ビットサウンド工房
+          li 
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") クリック音_2|８ビットサウンド工房
+        div Game Producer
+        ul 
+          li Aki Unleash
+        div.credit-topbutton#topbutton-potion
+
+    template#credit-button
+      div.optionbutton-postion__credit 
+        button.nes-btn  Credit
+
     //- <!-- TEMPLATE - end  -->
     div.container
       div#app
+
+
+
     footer#footer.footer

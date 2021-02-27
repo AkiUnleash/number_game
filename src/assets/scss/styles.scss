@@ -153,3 +153,15 @@ body {
 .ranking-topbutton {
   text-align: center;
 }
+
+.optionbutton-postion {
+  margin-top: $basePixel;
+  display: flex;
+  &__credit {
+    margin-left: auto;
+  }
+}
+
+.credit-topbutton {
+  text-align: center;
+}

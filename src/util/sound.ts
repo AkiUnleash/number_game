@@ -107,6 +107,9 @@ class SoundControl {
         break;
       case 'ranking':
         break;
+      case 'credit':
+        this.opning_stop()
+        break;
     }
   }
 }
