@@ -26,10 +26,13 @@ export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
     attachOnOff ? this.attach() : null
 
   }
+
+  // エレメントの描画
   private attach() {
     this.hostElement.insertAdjacentElement('beforeend', this.element)
   }
 
+  // app内のエレメントを削除
   protected allremove() {
     const elm = document.getElementById('app')! as HTMLDivElement
     elm.innerHTML = ''

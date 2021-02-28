@@ -9,20 +9,26 @@ export class ScreenRanking extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
     super('ranking-template', 'app');
     this.configure();
+    // トップボタンの表示
     new ButtonTop();
   }
 
   configure() {
+    // スクリーン状況を設定
     stateOperation.setScreen('ranking')
+    // スクリーン状況にあった音楽を再生
     soundOperation.now();
+    // Firebaseからデータを取得し表示
     this.firebaseInport();
   }
 
+  // Firebaseからデータを取得し表示
   async firebaseInport() {
     const rankdata = await firebasecontrol.inportdata()
     this.append(rankdata)
   }
 
+  // データを取得し、エレメントの作成
   append(rankdata: User[]) {
     // OutputElement
     const ap = document.getElementById('ranking-body')!
@@ -33,7 +39,7 @@ export class ScreenRanking extends Component<HTMLDivElement, HTMLInputElement> {
     const importedNode = document.importNode(rankTemplate.content, true)
     const rankEl = importedNode.firstElementChild as HTMLElement;
 
-    // 
+    // エレメントの作成
     rankdata.forEach((u, index) => {
       const cn = rankEl.cloneNode(true);
 
@@ -43,6 +49,8 @@ export class ScreenRanking extends Component<HTMLDivElement, HTMLInputElement> {
 
       fragment.appendChild(cn);
     })
+
+    // 蓄積したエレメントを設定
     ap.appendChild(fragment)
   }
 }

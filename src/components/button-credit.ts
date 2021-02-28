@@ -20,12 +20,16 @@ export class ButtonCredit extends Component<HTMLDivElement, HTMLInputElement> {
   @Autobind
   private clickHandler(event: Event) {
 
+    // 効果音
     soundOperation.tap_button_play()
+
+    // ポイントの初期化
     stateOperation.setPointInitialize()
 
     // エレメント削除
     this.allremove()
 
+    // クレジット画面の表示
     new ScreenCredit()
   }
 }

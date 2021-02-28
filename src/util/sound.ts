@@ -26,6 +26,7 @@ class SoundControl {
     return SoundControl._instance;
   }
 
+  // オープニング音楽の再生(サウンド設定の状況により停止)
   opning() {
     this.audio.src = soundOpening
     if (stateOperation.getSound()) {
@@ -35,11 +36,13 @@ class SoundControl {
     }
   }
 
+  // オープニング音楽の停止
   opning_stop() {
     this.audio.src = soundOpening
     this.audio.pause()
   }
 
+  // ゲームプレイ音楽の再生(サウンド設定の状況により停止)
   gameplay() {
     this.audio.src = soundGameplay
     if (stateOperation.getSound()) {
@@ -49,11 +52,13 @@ class SoundControl {
     }
   }
 
+  // ゲームプレイ音楽の停止
   gameplay_stop() {
     this.audio.src = soundGameplay
     this.audio.pause()
   }
 
+  // ナンバーボタンのプッシュ音再生
   tap_number_play() {
     if (stateOperation.getSound()) {
       this.sound1.src = tapNumber
@@ -61,6 +66,7 @@ class SoundControl {
     }
   }
 
+  // その他ボタンのプッシュ音作成
   tap_button_play() {
     if (stateOperation.getSound()) {
       this.sound1.src = tapButton
@@ -68,6 +74,7 @@ class SoundControl {
     }
   }
 
+  // カウントダウン音の再生
   countdown_play() {
     if (stateOperation.getSound()) {
       this.sound2.src = soundCountdown
@@ -75,6 +82,7 @@ class SoundControl {
     }
   }
 
+  // ゲームオーバー音楽の再生
   gameover() {
     this.audio.src = soundGameover
     if (stateOperation.getSound()) {
@@ -84,11 +92,13 @@ class SoundControl {
     }
   }
 
+  // ゲーム〜バー音楽の停止
   gameover_stop() {
     this.audio.src = soundGameover
     this.audio.pause()
   }
 
+  // シーン（スクリーン）に合わせた音楽を再生／停止
   now() {
     switch (stateOperation.getScene()) {
       case 'start':
@@ -97,7 +107,6 @@ class SoundControl {
       case 'standby':
         this.opning_stop()
         break;
-
       case 'gameplay':
         this.gameplay()
         break;

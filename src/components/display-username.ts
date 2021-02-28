@@ -8,9 +8,7 @@ export class DisplayUsername extends Component<HTMLDivElement, HTMLInputElement>
     this.element.textContent = stateOperation.getUsername()
   }
 
-  renderQuestion() {
-  }
+  renderQuestion() { }
 
-  configure() {
-  }
+  configure() { }
 }

@@ -9,8 +9,10 @@ export class DisplayQuestion extends Component<HTMLDivElement, HTMLInputElement>
 
     this.assignedState = []
 
+    // 問題の追加
     stateOperation.setQuestion();
 
+    // 問題変更時に実行される関数を蓄積
     stateOperation.addListener((question: any[], flg: string) => {
       if (flg === 'question') {
         this.assignedState = question
@@ -25,12 +27,13 @@ export class DisplayQuestion extends Component<HTMLDivElement, HTMLInputElement>
   configure() { }
 
   renderContent() {
+    // クエスチョンの状況を取得し、描画する。
     const q = stateOperation.getQuestion()
     const listEl = document.getElementById('question_app')! as HTMLDivElement;
     const newEl = document.createElement('div');
-    newEl.classList.add('question__item--brank')
     let fragment = document.createDocumentFragment();
 
+    newEl.classList.add('question__item--brank')
     for (let elemntCount: number = q.length; elemntCount < 5; elemntCount++) {
       fragment.appendChild(newEl);
     }
@@ -40,10 +43,12 @@ export class DisplayQuestion extends Component<HTMLDivElement, HTMLInputElement>
       cn.textContent = Item
       fragment.appendChild(cn);
     }
+
     listEl.appendChild(fragment);
   }
 
   elementRemove() {
+    // question_appの削除
     const listEl = document.getElementById('question_app')! as HTMLDivElement;
     listEl.innerHTML = ''
   }

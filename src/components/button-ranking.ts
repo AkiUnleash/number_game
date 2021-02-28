@@ -21,6 +21,7 @@ export class ButtonRanking extends Component<HTMLDivElement, HTMLInputElement> {
     // エレメント削除
     this.allremove()
 
+    // ランキング画面の表示
     new ScreenRanking()
   }
 }

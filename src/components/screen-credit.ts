@@ -12,10 +12,8 @@ export class ScreenCredit extends Component<HTMLDivElement, HTMLInputElement> {
     new ButtonTop()
   }
 
-  renderQuestion() {
-  }
+  renderQuestion() { }
 
-  configure() {
-  }
+  configure() { }
 
 }

@@ -20,12 +20,16 @@ export class ButtonTop extends Component<HTMLDivElement, HTMLInputElement> {
   @Autobind
   private clickHandler(event: Event) {
 
+    // 効果音の再生
     soundOperation.tap_button_play()
+
+    // ポイントの初期化
     stateOperation.setPointInitialize()
 
     // エレメント削除
     this.allremove()
 
+    // ゲームスタート画面表示
     new ScreenGamestart()
   }
 }
