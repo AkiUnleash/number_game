@@ -1,6 +1,7 @@
 import { Component } from './abstract-component'
 import { ButtonStart } from './button-start'
 import { ButtonRanking } from './button-ranking'
+import { ButtonMode } from './button-mode'
 import { ButtonCredit } from './button-credit'
 import logoImage from '../assets/images/logo.png'
 import { stateOperation } from '../state/state'
@@ -18,6 +19,8 @@ export class ScreenGamestart extends Component<HTMLDivElement, HTMLInputElement>
     new ButtonStart('startbutton-postion');
     // ランキングボタンの表示
     new ButtonRanking();
+    // モードボタンの表示
+    new ButtonMode()
     // クレジットボタンの表示
     new ButtonCredit();
     // ロゴの表示

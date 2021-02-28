@@ -9,6 +9,10 @@
 
 https://brain-training-ac1bd.web.app/
 
+## 更新記録
+
+2021/02/28 モードの追加（Nomal or kids）
+
 ## 作者
 
 Aki Unleash

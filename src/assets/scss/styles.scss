@@ -12,6 +12,14 @@ body {
   height: 100%;
 }
 
+.nomalmode {
+  background-color: #fff;
+}
+
+.kidsmode {
+  background-color: #fffcdf;
+}
+
 .container {
   font-family: "MainFont";
   width: 100%;
@@ -160,9 +168,7 @@ body {
 .optionbutton-postion {
   margin-top: $basePixel;
   display: flex;
-  &__credit {
-    margin-left: auto;
-  }
+  justify-content: space-between;
 }
 
 .credit-topbutton {
