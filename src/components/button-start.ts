@@ -15,6 +15,7 @@ export class ButtonStart extends Component<HTMLDivElement, HTMLInputElement> {
 
     super('start-button', hostElementId)
 
+    // リスタート時はボタンの文字列を変更
     this.restart = restart;
     if (this.restart === true) {
       this.element.textContent = "RESTART";
@@ -32,7 +33,9 @@ export class ButtonStart extends Component<HTMLDivElement, HTMLInputElement> {
   @Autobind
   private clickHandler() {
     // ユーザー名保管
+    // 通常スタート時の処理
     if (this.restart === false) {
+      // ニックネーム名の取得
       const elementUsername = document.getElementById('name_field') as HTMLInputElement;
       stateOperation.setUsername(elementUsername.value)
 
@@ -43,12 +46,12 @@ export class ButtonStart extends Component<HTMLDivElement, HTMLInputElement> {
         feedbackEl.textContent = validator.getErrorMessage()
         return
       }
-
     } else {
+      // ポイントの初期化
       stateOperation.setPointInitialize()
     }
 
-
+    // 効果音再生
     soundOperation.tap_button_play()
 
     // エレメント削除

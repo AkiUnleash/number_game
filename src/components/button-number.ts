@@ -7,6 +7,7 @@ export class ButtonNumber extends Component<HTMLDivElement, HTMLInputElement> {
     super('number-button', 'oparation', false)
     this.configure()
 
+    // Listenerに関数を蓄積
     stateOperation.addListener((_: any[], flg: string) => {
       if (flg === 'number') {
         this.changeElement()
@@ -14,6 +15,7 @@ export class ButtonNumber extends Component<HTMLDivElement, HTMLInputElement> {
     })
   }
 
+  // 数字ボタンのエレメントを削除
   elementRemove() {
     const listEl = document.getElementById('oparation')! as HTMLDivElement;
     listEl.innerHTML = ''
@@ -58,6 +60,7 @@ export class ButtonNumber extends Component<HTMLDivElement, HTMLInputElement> {
     listEl.appendChild(fragment);
   }
 
+  // クリック時の処理
   private _clickHandler(count: string) {
     stateOperation.checkTheAnswer(count);
     soundOperation.tap_number_play()

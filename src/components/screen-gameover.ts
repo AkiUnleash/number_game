@@ -9,10 +9,15 @@ export class ScreenGameover extends Component<HTMLDivElement, HTMLInputElement> 
 
   constructor() {
     super('gameover', 'app');
+    // スクリーン状態の設定
     stateOperation.setScreen('gameover');
+    // スクリーン状況での音楽を再生
     soundOperation.now();
+    // ポイントを表示
     this.renderPoint();
+    // リスタートボタンの表示
     new ButtonStart('startbutton-potion', true);
+    // トップボタンの表示
     new ButtonTop();
 
     // Firebaseに登録
@@ -33,11 +38,13 @@ export class ScreenGameover extends Component<HTMLDivElement, HTMLInputElement> 
 
   }
 
+  // ポイントを表示
   renderPoint() {
     const pointElemnt = document.getElementById('finish__point')! as HTMLElement
     pointElemnt.textContent = stateOperation.getPoint();
   }
 
+  // ランク表示
   renderRank(ranknumber: string) {
     const pointElemnt = document.getElementById('finish__ranknumber')! as HTMLElement
     pointElemnt.textContent = ranknumber;

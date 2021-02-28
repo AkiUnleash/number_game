@@ -4,6 +4,7 @@ export class Validator<T extends string | number> {
     this._message = ''
   }
 
+  // エラーメッセージの取得
   getErrorMessage() {
     return this._message
   }

@@ -9,5 +9,6 @@ export function Autobind(_: any, __: string, descriptor: PropertyDescriptor) {
       return boundFn;
     }
   }
+
   return adjDescriptor;
 }

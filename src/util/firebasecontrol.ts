@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import "firebase/firestore";
 
+// ユーザー型
 export type User = {
   nickname: string
   point: number
@@ -40,6 +41,7 @@ export class FirebaseControl {
     return _users;
   }
 
+  // 登録結果のランクを表示
   async rank(id: string) {
     let rank!: number;
     let r: number = 1;
@@ -58,10 +60,3 @@ export class FirebaseControl {
 }
 
 export const firebasecontrol = FirebaseControl.getInstance() // do something with the instance...
-
-// const cu = new FirebaseControl
-// cu.inportdata().then((resolve) =>
-//   console.log(resolve)
-// );
-
-

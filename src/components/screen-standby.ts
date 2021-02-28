@@ -11,19 +11,25 @@ import { soundOperation } from '../util/sound'
 export class Standby extends Component<HTMLDivElement, HTMLInputElement> {
   constructor(private _count: number = 3) {
     super('standby', 'app')
+    // スクリーン状況の設定
     stateOperation.setScreen('standby')
+    // スクリーン状況に合わせた音楽を再生
     soundOperation.now()
     this.configure()
   }
 
   async configure() {
-    // ３秒間待つ
+    // ３秒間の待機画面
     let cnt = await this._countDown(this._count);
     this.element.textContent = cnt.toString()
     soundOperation.countdown_play()
+
+    // ２
     cnt = await this._countDown(cnt)
     this.element.textContent = cnt.toString()
     soundOperation.countdown_play()
+
+    // １
     cnt = await this._countDown(cnt)
 
     // ゲーム画面表示

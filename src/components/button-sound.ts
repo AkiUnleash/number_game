@@ -19,14 +19,17 @@ export class ButtonSound extends Component<HTMLDivElement, HTMLInputElement> {
   // 埋め込むアクション
   @Autobind
   private clickHandler() {
+    // サウンド状況の指定
     stateOperation.setSound()
 
+    // サンド画像の切り替え
     if (stateOperation.getSound()) {
       this.element.src = imageSoundOn
     } else {
       this.element.src = imageSoundOff
     }
 
+    // シーンに合わせて音楽を再生
     soundOperation.now()
   }
 }

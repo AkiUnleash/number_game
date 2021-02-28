@@ -8,13 +8,13 @@ export class DisplayPoint extends Component<HTMLDivElement, HTMLInputElement> {
 
     this._point = ''
 
+    // ポイント変動時に、実行される関数。
     stateOperation.addListener((point: number, flg: string) => {
       if (flg === 'point') {
         this._point = point.toString().padStart(6, '0')
         this.renderPoint();
       }
     })
-
   }
 
   renderPoint() {
