@@ -12,6 +12,7 @@ interface State {
   username: string;
   sound: boolean;
   scene: string;
+  mode: string;
 }
 
 export class StateManager {
@@ -26,6 +27,7 @@ export class StateManager {
       username: '',
       sound: false,
       scene: '',
+      mode: 'nomal'
     }
   }
 
@@ -121,6 +123,14 @@ export class StateManager {
   // シーン(スクリーン)の取得
   setScreen(scene: string) {
     this.state.scene = scene
+  }
+
+  getMode() {
+    return this.state.mode;
+  }
+
+  setMode(mode: string) {
+    this.state.mode = mode
   }
 }
 

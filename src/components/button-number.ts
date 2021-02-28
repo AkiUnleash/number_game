@@ -9,7 +9,7 @@ export class ButtonNumber extends Component<HTMLDivElement, HTMLInputElement> {
 
     // Listenerに関数を蓄積
     stateOperation.addListener((_: any[], flg: string) => {
-      if (flg === 'number') {
+      if (flg === 'number' && stateOperation.getMode() === 'nomal') {
         this.changeElement()
       }
     })
