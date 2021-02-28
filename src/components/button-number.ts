@@ -6,6 +6,17 @@ export class ButtonNumber extends Component<HTMLDivElement, HTMLInputElement> {
   constructor() {
     super('number-button', 'oparation', false)
     this.configure()
+
+    stateOperation.addListener((_: any[], flg: string) => {
+      if (flg === 'number') {
+        this.changeElement()
+      }
+    })
+  }
+
+  elementRemove() {
+    const listEl = document.getElementById('oparation')! as HTMLDivElement;
+    listEl.innerHTML = ''
   }
 
   configure() {
@@ -15,13 +26,34 @@ export class ButtonNumber extends Component<HTMLDivElement, HTMLInputElement> {
 
     // 0から9まで繰り返す
     for (const Item of this._arrayshuffle([...Array(10)].map((_, i) => i))) {
+      // ID付与
+      this.element.id = Item.toString()
       // 取得したエレメントをクローン
       const cn = this.element.cloneNode(true);
       cn.textContent = Item.toString();
-      cn.addEventListener('click', () => { this._clickHandler(Item.toString()) });
+      cn.addEventListener('click', (e) => { this._clickHandler(Item.toString()) });
       // 蓄積
       fragment.appendChild(cn);
     }
+    // 蓄積したエレメントを設置
+    listEl.appendChild(fragment);
+  }
+
+  // ボタンの再描画
+  changeElement() {
+    // 数字入力ボタンを挿入する場所を指定。
+    const listEl = document.getElementById('oparation')! as HTMLDivElement;
+    let fragment = document.createDocumentFragment();
+
+    // IDをキーにエレメントを取得
+    for (const Item of this._arrayshuffle([...Array(10)].map((_, i) => i))) {
+      let thisEl = document.getElementById(Item.toString())! as HTMLDivElement;
+      const cn = thisEl.cloneNode(true);
+      cn.addEventListener('click', (e) => { this._clickHandler(Item.toString()) });
+      fragment.appendChild(cn);
+    }
+    // 現状の描画を削除
+    this.elementRemove()
     // 蓄積したエレメントを設置
     listEl.appendChild(fragment);
   }

@@ -63,6 +63,9 @@ export class StateManager {
     if (this.state.question.length === 0) {
       this.setQuestion()
       this.state.point += listOfPoints.success;
+      for (const listenerFn of this.listeners) {
+        listenerFn([], 'number')
+      }
     }
 
     for (const listenerFn of this.listeners) {
