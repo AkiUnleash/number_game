@@ -1,46 +1,30 @@
 const path = require('path')
+const CleanPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const globule = require("globule");
 const CopyPlugin = require("copy-webpack-plugin");
 
 const app = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/app.ts',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: path.resolve(__dirname, 'dist'),
   },
-  devtool: 'inline-source-map',
+  devtool: false,
   module: {
     rules: [
       {
         test: /.(css|scss|sass)$/,
         use: [
-          {
-            // minifiy
-            loader: MiniCssExtractPlugin.loader,
-          },
+          { loader: MiniCssExtractPlugin.loader, },
           {
             loader: 'css-loader',
             options: { sourceMap: true },
           },
-          {
-            loader: 'sass-loader'
-          }
+          { loader: 'sass-loader' }
         ],
-      },
-      {
-        test: /\.ts$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      },
-      {
-        // 対象となるファイルの拡張子
-        test: /\.(woff|png|jpg|mp3)$/,
-        // 画像をBase64として取り込む
-        type: "asset/inline",
       },
       {
         // Pug File
@@ -57,20 +41,24 @@ const app = {
           },
         ],
       },
+      {
+        test: /\.(woff|jpg|png|mp3)$/,
+        type: "asset/inline",
+      },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
     ]
   },
   resolve: {
     extensions: ['.ts', '.js']
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    openPage: "index.html",
-    open: true,
-    port: 3000
-  },
   plugins: [
+    new CleanPlugin.CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'styles/style.css'
+      filename: 'styles/styles.css'
     }),
     // Faviconをdistへコピー
     new CopyPlugin({

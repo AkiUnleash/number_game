@@ -1,0 +1,176 @@
+@import "variables";
+
+@font-face {
+  font-family: "MainFont";
+  src: url("../font/NuAnkoMochi-Reg.woff") format("woff");
+}
+html {
+  height: 100%;
+  touch-action: manipulation;
+}
+body {
+  height: 100%;
+}
+
+.nomalmode {
+  background-color: #fff;
+}
+
+.kidsmode {
+  background-color: #fffcdf;
+}
+
+.container {
+  font-family: "MainFont";
+  width: 100%;
+  height: 96%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  width: 400px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 $basePixel;
+  height: 4%;
+  &__sound {
+    height: 100%;
+  }
+}
+
+// Start Screen
+.titlescreen {
+  &__img {
+    display: block;
+    width: 124px;
+    margin: auto;
+  }
+  &__title {
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 32px;
+    color: $MainColor;
+  }
+
+  &__message {
+    font-size: 20px;
+  }
+
+  &__namelabel {
+    margin-top: $basePixel * 2;
+  }
+
+  &__nameinput {
+    background-color: $SubColor;
+  }
+
+  &__start {
+    margin-top: $basePixel * 2;
+    text-align: center;
+  }
+
+  &__feedback {
+    color: $AccentColor;
+  }
+}
+
+// Standby Screen
+.counttostart {
+  font-size: $basePixel * 12;
+  text-align: center;
+}
+
+// Game Screen
+.header {
+  display: flex;
+  margin-bottom: $basePixel * 3;
+  &__point {
+    margin-left: auto;
+  }
+}
+
+.timer-screen {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: $basePixel * 3;
+  &__div--orange {
+    color: $MainColor;
+  }
+  &__div--red {
+    color: $AccentColor;
+  }
+}
+
+.question {
+  display: flex;
+  justify-content: space-around;
+  font-size: 32px;
+  margin-bottom: $basePixel * 3;
+  &__item {
+    color: #233bef;
+    width: 15%;
+    &--brank {
+      width: 20%;
+    }
+  }
+}
+
+.oparation {
+  text-align: center;
+  &__button {
+    width: 28%;
+    font-size: 28px;
+    margin-bottom: $basePixel;
+  }
+}
+
+.finish {
+  text-align: center;
+  &__point {
+    font-size: 48pt;
+    color: #ff9b3b;
+  }
+  &__button {
+    text-align: center;
+    margin: $basePixel;
+  }
+}
+
+.ranking-title {
+  text-align: center;
+}
+
+.ranking-table {
+  margin: 3%;
+  &__th {
+    &--no {
+      width: 15%;
+    }
+    &--name {
+      width: 62%;
+    }
+    &--point {
+      width: 20%;
+      text-align: right;
+    }
+  }
+}
+.ranking-topbutton {
+  text-align: center;
+}
+
+.optionbutton-postion {
+  margin-top: $basePixel;
+  display: flex;
+  justify-content: space-between;
+}
+
+.credit-topbutton {
+  text-align: center;
+}

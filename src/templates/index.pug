@@ -1,0 +1,131 @@
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    meta(name="robots" content="noindex")
+    title ノートレゲーム
+
+  body
+    //- <!-- TEMPLATE -->
+    //- <!-- Start Screen -->
+    template#start-screen
+      div#titlescreen.titlescreen
+        h1.titlescreen__title ノートレゲーム
+        div.titlescreen__message.nes-container.is-rounded
+          p 表示された数字を３０秒間に、どれだけ多く押せるかをきそうゲームです。
+        div.nes-field
+          label.titlescreen__namelabel(for="name_field") Your nicname
+          input#name_field.nes-input.titlescreen__nameinput(type="text" placeholder="ニックネーム" autofocus)
+          div#feedback.titlescreen__feedback
+          div#startbutton-postion.titlescreen__start
+          div#optionbutton-postion.optionbutton-postion
+
+    template#start-button
+      button#start.nes-btn.is-primary START
+
+    //- <!-- Standby Screen -->
+    template#standby
+      div.counttostart 3
+
+    //- <!-- GameScreen -->
+    template#game-screen
+      div
+        div#header.header
+        div#timer-screen.timer-screen
+        div#question_app.question
+        div#oparation.oparation
+
+    template#username
+      div.header__Name Akio
+
+    template#point
+      div.header__point 000000
+
+    template#number-button
+      button.nes-btn.oparation__button(type="button") 0
+
+    template#question
+      div.nes-container.is-rounded.question__item 1
+
+    template#timer
+      div 30 sec
+
+    //- <!-- Game Over Screen -->
+    template#gameover
+      div
+        div.finish
+          div Your Points is
+          span#finish__point.finish__point 3500 
+          span pt 
+          div Rank 
+            span#finish__ranknumber 
+        div#startbutton-potion.finish__button
+        div#topbutton-potion.finish__button
+
+    template#top-button
+      button.nes-btn TOP
+
+    template#mode-button
+      button.nes-btn.is-success NOMAL MODE
+
+    //- <!-- footer -->
+    template#sound-button
+      img.footer__sound
+
+    //- Ranking
+    template#ranking-template
+      div 
+        div.ranking-title Ranking Top10
+        table.ranking-table
+          thead 
+            tr
+              th.ranking-table__th--no No 
+              th.ranking-table__th--name Name 
+              th.ranking-table__th--point Point
+          tbody#ranking-body
+        div.ranking-topbutton#topbutton-potion
+      
+    template#ranking-template-data 
+      tr 
+        td#ranking-no 1
+        td#ranking-name abcde
+        td#ranking-point  777
+
+    template#ranking-button
+      button.nes-btn Ranking
+
+    template#credit
+      div
+        div MUSIC
+        ul 
+          li 
+            a(href="http://pansound.com/panicpumpkin/" target="_blank" rel="noopener norefrrer") ゆきとどくもうどく|PANICPUMPKIN
+          li 
+            a(href="http://pansound.com/panicpumpkin/" target="_blank" rel="noopener norefrrer") じごくのるーれっと|PANICPUMPKIN
+          li
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") イベンドクリア|８ビットサウンド工房
+        div Sound effect
+        ul 
+          li 
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") コインをゲット_1|８ビットサウンド工房
+          li 
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") ティッ|８ビットサウンド工房
+          li 
+            a(href="http://www.skipmore.com" target="_blank" rel="noopener norefrrer") クリック音_2|８ビットサウンド工房
+        div Game Producer
+        ul 
+          li Aki Unleash
+        div.credit-topbutton#topbutton-potion
+
+    template#credit-button
+      div.optionbutton-postion__credit 
+        button.nes-btn  Credit
+
+    //- <!-- TEMPLATE - end  -->
+    div.container
+      div#app
+
+
+
+    footer#footer.footer
