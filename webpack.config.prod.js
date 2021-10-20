@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const globule = require("globule");
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 const app = {
   mode: 'production',
@@ -68,7 +69,9 @@ const app = {
         context: "src/assets/images/icon/"
       }],
     }
-    )
+    ),
+    // .envを使用するプラグイン
+    new Dotenv(),
   ]
 };
 

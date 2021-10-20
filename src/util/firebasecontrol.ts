@@ -11,7 +11,15 @@ export type User = {
 
 export class FirebaseControl {
   private static _instance: FirebaseControl;
-  private _firebaseConfig = { projectId: "brain-training-ac1bd" };
+  private _firebaseConfig = { 
+    apiKey: process.env.FIREBASE_APIKEY,
+    authDomain: process.env.FIREBASE_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket:  process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID
+  };
   private _firebase: firebase.app.App
   private _analytics: firebase.analytics.Analytics
   private _db: firebase.firestore.Firestore
