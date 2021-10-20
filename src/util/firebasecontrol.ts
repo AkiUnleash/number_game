@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import "firebase/firestore";
+import "firebase/analytics";
 import { stateOperation } from '../state/state';
 
 // ユーザー型
@@ -13,11 +14,13 @@ export class FirebaseControl {
   private _firebaseConfig = { projectId: "brain-training-ac1bd" };
   private _firebase: firebase.app.App
   private _db: firebase.firestore.Firestore
+  private _analytics: firebase.analytics.Analytics
   private _collection: string
 
   constructor() {
     this._firebase = firebase.initializeApp(this._firebaseConfig)
     this._db = this._firebase.firestore()
+    this._analytics = this._firebase.analytics()
     this._collection = 'users'
   }
 
