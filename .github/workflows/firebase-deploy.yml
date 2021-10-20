@@ -31,8 +31,22 @@ jobs:
         run: |
           touch .env
           echo "FIREBASE_APIKEY=$FIREBASE_APIKEY" >> .env
+          echo "FIREBASE_DOMAIN=$FIREBASE_DOMAIN" >> .env
+          echo "FIREBASE_DATABASE=$FIREBASE_DATABASE" >> .env
+          echo "FIREBASE_PROJECT_ID=$FIREBASE_PROJECT_ID" >> .env
+          echo "FIREBASE_STORAGE_BUCKET=$FIREBASE_STORAGE_BUCKET" >> .env
+          echo "FIREBASE_SENDER_ID=$FIREBASE_SENDER_ID" >> .env
+          echo "FIREBASE_APP_ID=$FIREBASE_APP_ID" >> .env
+          echo "FIREBASE_MEASUREMENT_ID=$FIREBASE_MEASUREMENT_ID" >> .env
         env:
           FIREBASE_APIKEY: ${{ secrets.FIREBASE_APIKEY }}
+          FIREBASE_DOMAIN: ${{ secrets.FIREBASE_DOMAIN }}
+          FIREBASE_DATABASE: ${{ secrets.FIREBASE_DATABASE }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+          FIREBASE_SENDER_ID: ${{ secrets.FIREBASE_SENDER_ID }}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
       # Runs a single command using the runners shell
       - name: Build with Webpack
