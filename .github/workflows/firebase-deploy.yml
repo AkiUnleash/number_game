@@ -30,11 +30,7 @@ jobs:
       - name: Create .env
         run: |
           touch .env
-          echo "FIREBASE_APIKEY=$FIREBASE_APIKEY" >> .env
-          echo "FIREBASE_DOMAIN=$FIREBASE_DOMAIN" >> .env
-        env:
-          FIREBASE_APIKEY: ${{ secrets.FIREBASE_APIKEY }}
-          FIREBASE_DOMAIN: ${{ secrets.FIREBASE_DOMAIN }}
+          echo "FIREBASE_APIKEY=${{ secrets.FIREBASE_APIKEY }}" >> .env
 
       # Runs a single command using the runners shell
       - name: Build with Webpack
