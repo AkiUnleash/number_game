@@ -35,9 +35,9 @@ jobs:
           echo "FIREBASE_DATABASE= ${{ secrets.FIREBASE_DATABASE }}" >> .env
           echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
           echo "FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}" >> .env
-          echo "FIREBASE_SENDER_ID=${{ secrets.FIREBASE_SENDER_ID }} >> .env
-          echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }} >> .env
-          echo "FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }} >> .env
+          echo "FIREBASE_SENDER_ID=${{ secrets.FIREBASE_SENDER_ID }}" >> .env
+          echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
+          echo "FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}" >> .env
 
       # Runs a single command using the runners shell
       - name: Build with Webpack
