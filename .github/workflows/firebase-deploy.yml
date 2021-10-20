@@ -26,6 +26,10 @@ jobs:
       - name: Install based on the package.json
         run: npm install
 
+      # Runs a single command using the runners shell
+      - name: Create .env
+        run: |
+          touch .env
 
       # Runs a single command using the runners shell
       - name: Build with Webpack
