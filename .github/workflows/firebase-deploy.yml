@@ -23,20 +23,21 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Create .env
-        run: |
-          echo FIREBASE_APIKEY={{$secrets.FIREBASE_APIKEY}}
-          echo FIREBASE_DOMAIN={{$secrets.FIREBASE_DOMAIN}}
-          echo FIREBASE_DATABASE={{$secrets.FIREBASE_DATABASE}}
-          echo FIREBASE_PROJECT_ID={{$secrets.FIREBASE_PROJECT_ID}}
-          echo FIREBASE_STORAGE_BUCKET={{$secrets.FIREBASE_STORAGE_BUCKET}}
-          echo FIREBASE_SENDER_ID={{$secrets.FIREBASE_SENDER_ID}}
-          echo FIREBASE_APP_ID={{$secrets.FIREBASE_APP_ID}}
-          echo FIREBASE_MEASUREMENT_ID={{$secrets.FIREBASE_MEASUREMENT_ID}}
-
-      # Runs a single command using the runners shell
       - name: Install based on the package.json
         run: npm install
+
+      # Runs a single command using the runners shell
+      - name: Create .env
+        run: |
+          touch .env
+          echo "FIREBASE_APIKEY=${{ secrets.FIREBASE_APIKEY }}" >> .env
+          echo "FIREBASE_DOMAIN=${{ secrets.FIREBASE_DOMAIN }}" >> .env
+          echo "FIREBASE_DATABASE= ${{ secrets.FIREBASE_DATABASE }}" >> .env
+          echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
+          echo "FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}" >> .env
+          echo "FIREBASE_SENDER_ID=${{ secrets.FIREBASE_SENDER_ID }} >> .env
+          echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }} >> .env
+          echo "FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }} >> .env
 
       # Runs a single command using the runners shell
       - name: Build with Webpack
